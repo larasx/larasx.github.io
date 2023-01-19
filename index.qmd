@@ -1,0 +1,135 @@
+---
+title: "Pengaruh Volume Ekspor Terhadap Nilai Ekspor CPO Indonesia di Pasar Internasional"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Liza Syam Trilarasati"
+date: 2023-01-19
+number-sections: true
+format:
+  html: default
+  docx: default
+editor: visual
+---
+
+![Logo Politeknik APP Jakarta](poltekapp.jpg){alt="logo APP muncul secara random"}
+
+## Pendahuluan
+
+### Latar belakang
+
+Perdagangan internasional merupakan kegiatan transaksi jual-beli barang atau jasa yang dilakukan antar-negara meliputi kegiatan ekspor dan impor yang bertujuan memenuhi kebutuhan bagi negara importir maupun untuk meningkatkan cadangan devisa bagi negara eksportir (Turnip dkk., 2016). Negara-negara yang memiliki sumber daya alam yang berlimpah akan mengekspor sumber daya tersebut ke negara lain. Ekspor terjadi apabila kebutuhan akan suatu produk di suatu negara sudah terpenuhi dan ada negara lain yang membutuhkan produk tersebut (Manta & Munawar, 2018). Minyak kelapa sawit atau *Crude Palm Oil* (CPO) merupakan minyak nabati yang diperoleh dari daging buah kelapa sawit (*mesokrap)* yang belum mengalami pemurnian dan mengandung lemak alkohol, metil ester, dan asam lemak. Kelapa sawit atau CPO mengalami pertumbuhan produksi cukup pesat dibandingkan dengan tanaman perkebunan lainnya di Indonesia. Sebagai produk utama, CPO terus mengalami peningkatan volume ekspor seiring dengan kebutuhan ekspor yang semakin meningkat sebagai bahan baku maupun biodiesel. Kelapa sawit menjadi komoditas andalan Indonesia dalam menambah devisa negara. Indonesia merupakan penghasil minyak kelapa sawit terbesar di dunia, sehingga Indonesia sering melakukan ekspor CPO ke negara-negara importir. Pada tahun 2018 lalu, ekspor CPO mencapai 34 juta ton dengan nilai sekitar Rp 270 triliun (Kementan, 2019).
+
+### Ruang lingkup
+
+Dengan adanya batasan masalah, maka tujuan penelitian ini diharapkan menghindari adanya penyimpangan maupun pelebaran pokok masalah agara penelitian ini lebih terarah dan memudahkan dalam pembahasan dengan tujuan penelitian ini akan tercapai. Penelitian ini akan membahas bagaimana pengaruh volume ekspor CPO Indonesia terhadap total nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+
+### **Rumusan masalah**
+
+1.  Bagaimana perkembangan volume ekspor CPO dan nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional?
+
+2.  Apakah volume ekspor CPO berpengaruh terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional?
+
+3.  Bagaimana pengaruh volume ekspor CPO terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional?
+
+### Tujuan dan manfaat penelitian
+
+Berdasarkan rumusan masalah di atas, sehingga tujuan penelitian dapat dirumuskan sebagai berikut:
+
+1.  Menganalisis bagaimana perkembangan volume ekspor CPO dan nilai ekspor Indonesia terhadap pada tahun 2019 di pasar internasional.
+2.  Menganalisis apakah volume ekspor CPO berpengaruh terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+3.  Menganalisis bagaimana pengaruh volume ekspor CPO terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+
+Adapun manfaat dari penelitian ini adalah sebagai berikut:
+
+1.  Memberi informasi perkembangan volume ekspor CPO Indonesia dan nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+2.  Memberi informasi apakah volume ekspor CPO berpengaruh terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+3.  Memberi informasi seberapa berpengaruh volume ekspor CPO terhadap nilai ekspor CPO Indonesia pada tahun 2019 di pasar internasional.
+
+### Package
+
+Packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+```
+
+## Studi Pustaka
+
+### Teori
+
+Dalam perdagangan internasional, kegiatan ekspor dan impor merupakan salah satu faktor yang sangat penting untuk meningkatkan pertumbuhan ekonomi (Siti, grace, 2021). suatu negara melakukan kegiatan ekspor dipastikan mampu memanfaatkan over kapasitas pada suatu produk. Maka dari itu, negara tersebut dinilai mampu mengendalikan harga produk ekspor yang terjadi di negaranya. Menurut Andi Susilo (2013:21) pengertian ekspor adalah kegiatan pengeluaran barang dari daerah pabean. Menurut Amir M.S. pengertian ekspor adalah kegiatan mengeluarkan barang dari peredaran dalam masyarakat dan mengirimkan ke luar negeri sesuai ketentuan pemerintah dan mengharapkan pembayaran dalam valuta asing.
+
+### Kerangka Penelitian
+
+![](images/paste-E08E102B.png){width="599"}
+
+## Metode Penelitian
+
+### Data
+
+Penelitian ini menggunakan data sekunder untuk menjawab tujuan penelitian yang sudah dirumuskan. Data yang digunakan menunjukkan volume ekspor CPO Indonesia dan nilai ekspor CPO Indonesia di pasar internasional. Periode data yang digunakan yaitu tahun 2019. Jenis CPO pada penelitian ini adalah CPO dengan kode *Harmonized System* (HS)151110 -- *Crude Palm Oil*. Sumber data dari *International Trade Centre* (ITC).
+
+![](images/paste-47516598.png)
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+setwd('C:/regresi/metopel') # AWAS SETWD-NYA PERBAIKI DULU
+library('readxl')
+library('tidyverse')
+dat<-read_excel('uas.xlsx')
+reg1<-lm(n~v,data=dat)
+summary(reg1)
+plot(dat$n,dat$v,xlab="nilai ekspor",ylab="volume ekspor")
+```
+
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara nilai ekspor CPO dan volume ekspor CPO. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah nilai ekspor dan $x_t$ adalah volume ekspor.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+Nilai ekspor menjadi salah satu faktor yang sangat diperhatikan oleh pemerintah. untuk itu diperlukan kualitas *crude palm oil* yang berkualitas serta lahan perkebunan sawit yang luas agar dapat memproduksi dan mengekspor CPO yang besar sehingga mempunyai nilai ekspor yang tinggi dari negara kompetitornya, maka dari itu bisa berpengaruh untuk menambah pendapatan devisa negara. apabila suatu negara memiliki tingkat volume ekspor yang besar maka nilai ekspor dari negara tersebut juga ikut meningkat.
+
+Oleh karena itu, penelitian ini dilakukan untuk menghubungkan pengaruh volume ekspor terhadap nilai ekspor negara Indonesia tahun 2019 dengan menjadikan komoditas CPO sebagai subjeknya.
+
+![](images/paste-5D9E133C.png)
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg1<-lm(v~n,data=dat)
+summary(reg1)
+```
+
+## Kesimpulan dan Saran
+
+### Kesimpulan
+
+Dari hasil regresi di atas, dapat disimpulkan bahwa setiap 1% volume ekspor CPO Indonesia mempengaruhi 2% nilai ekspor CPO Indonesia. Dengan begitu, dapat disimpulkan bahwa volume ekspor CPO berpengaruh terhadap nilai ekspor CPO yang dihasilkan negara Indonesia. Volume ekspor CPO Indonesia ke setiap negaranya berbeda-beda. Volume ekspor CPO Indonesia terbesar adalah ke negara India pada tahun 2019 sebesar 3,987,951 yang kemudian menghasilkan nilai ekspor tertinggi sebesar 1,943,963.
+
+### Saran
+
+Untuk menghasilkan volume ekspor yang nantinya akan berpengaruh ke nilai ekspor suatu negara, maka peran andil pemerintah dalam meningkatkan volume ekspor adalah dengan memperluas lahan perkebunan kelapa sawit yang nantinya akan menghasilkan jumlah produksi CPO yang besar sehingga dapat diekspor dengan jumlah yang banyak. Pemerintah harus meningkatkan kualitas CPO dan mempertahankan daya saing ekspor di setiap negara yang menjadi pangsa ekspor dengan memberikan kebijakan-kebijakan yang dapat mengurangi hambatan dalam mengekspor CPO ke luar negeri.
+
+## Referensi
+
+Hodijah, S., Patricia Angelina, G., Ekonomi dan Bisnis, F., & Jambi, U. (2021). ANALISIS PENGARUH EKSPOR DAN IMPOR TERHADAP PERTUMBUHAN EKONOMI DI INDONESIA. *Jurnal Manajemen Terapan Dan Keuangan (Mankeu)*, *10*(01).
+
+International Trade Centre (ITC). (2021). *Volume Ekspor CPO Indonesia*.
+
+Manta, A. P., & Munawar. (2018). *Analisis Daya Saing Komoditas Crude Palm Oil (CPO) Indonesia Ke Enam Negara Tujuan Utama Di Pasar Asia dan Eropa Periode 2010-2016.*
+
+Liputan 6. (2022). *Pengertian Ekspor dan Impor Menurut Para Ahli, Ketahui Manfaatnya untuk Negara*. Liputan 6.
+
+Sry March Lely Turnip Suharyono Suharyono M. Kholid Mawardi. (2016). ANALISIS DAYA SAING CRUDE PALM OIL (CPO) INDONESIA DI PASAR INTERNASIONAL. *Jurnal Administrasi Bisnis*, *39*(1).
